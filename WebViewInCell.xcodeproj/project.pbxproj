@@ -15,6 +15,7 @@
 		C5EAD9602924D9AF00D44073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD95E2924D9AF00D44073 /* LaunchScreen.storyboard */; };
 		C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */; };
 		C5EAD96A2924D9ED00D44073 /* TweetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */; };
+		F145B75E29255E45006EBFFD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145B75D29255E45006EBFFD /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C5EAD9612924D9AF00D44073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewCell.swift; sourceTree = "<group>"; };
 		C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetListTableViewCell.xib; sourceTree = "<group>"; };
+		F145B75D29255E45006EBFFD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C5EAD9612924D9AF00D44073 /* Info.plist */,
 				C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */,
 				C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */,
+				F145B75D29255E45006EBFFD /* Data.swift */,
 			);
 			path = WebViewInCell;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EAD9582924D9AE00D44073 /* ViewController.swift in Sources */,
+				F145B75E29255E45006EBFFD /* Data.swift in Sources */,
 				C5EAD9542924D9AE00D44073 /* AppDelegate.swift in Sources */,
 				C5EAD9562924D9AE00D44073 /* SceneDelegate.swift in Sources */,
 				C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */,

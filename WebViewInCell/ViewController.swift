@@ -28,17 +28,16 @@ class ViewController: UIViewController {
 
 // MARK: - TableView Delegate Methods
 extension ViewController: UITableViewDelegate {
-    
 }
 
 // MARK: - TableView DataSource Methods
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        Data.tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        TweetListTableViewCell.abc = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetListTableViewCell.identifier, for: indexPath) as! TweetListTableViewCell
         
         cell.delegate = self
