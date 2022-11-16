@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class TweetListTableViewCell: UITableViewCell, WKNavigationDelegate, WKUIDelegate {
+class TweetListTableViewCell: UITableViewCell, WKNavigationDelegate {
     static let identifier = "TweetListTableViewCell"
     static var abc = 0
     
@@ -18,11 +18,10 @@ class TweetListTableViewCell: UITableViewCell, WKNavigationDelegate, WKUIDelegat
     var height: CGFloat = 0 {
         didSet{
             let webViewContraints = [
-                webView.heightAnchor.constraint(equalToConstant: height)
+                self.webView.heightAnchor.constraint(equalToConstant: self.height)
             ]
-            
-            NSLayoutConstraint.activate(webViewContraints)
             DispatchQueue.main.async {
+                NSLayoutConstraint.activate(webViewContraints)
                 self.delegate?.tableView.reloadRows(at: [self.indexPath], with: .none)
             }
         }
@@ -31,10 +30,9 @@ class TweetListTableViewCell: UITableViewCell, WKNavigationDelegate, WKUIDelegat
     override func awakeFromNib() {
         super.awakeFromNib()
         webView.navigationDelegate = self
-        webView.uiDelegate = self
-          
+       // webView.uiDelegate = self
+        
         webView.translatesAutoresizingMaskIntoConstraints = false
-       // webView.scrollView.isScrollEnabled = false
         
         webView.loadHTMLString(Data.tweets[TweetListTableViewCell.abc], baseURL: nil)
     }
@@ -43,7 +41,6 @@ class TweetListTableViewCell: UITableViewCell, WKNavigationDelegate, WKUIDelegat
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.height = webView.scrollView.contentSize.height
-            print("finished loading: height=\(webView.scrollView.contentSize.height)")
         }
     }
 }
