@@ -62,18 +62,34 @@
 		C5EAD9522924D9AE00D44073 /* WebViewInCell */ = {
 			isa = PBXGroup;
 			children = (
-				C5EAD9532924D9AE00D44073 /* AppDelegate.swift */,
-				C5EAD9552924D9AE00D44073 /* SceneDelegate.swift */,
+				F1F060A029257F4400865B72 /* SupportingFiles */,
+				F1F0609F29257F1E00865B72 /* TweetCell */,
 				C5EAD9572924D9AE00D44073 /* ViewController.swift */,
 				C5EAD9592924D9AE00D44073 /* Main.storyboard */,
-				C5EAD95C2924D9AF00D44073 /* Assets.xcassets */,
-				C5EAD95E2924D9AF00D44073 /* LaunchScreen.storyboard */,
-				C5EAD9612924D9AF00D44073 /* Info.plist */,
-				C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */,
-				C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */,
 				F145B75D29255E45006EBFFD /* Data.swift */,
 			);
 			path = WebViewInCell;
+			sourceTree = "<group>";
+		};
+		F1F0609F29257F1E00865B72 /* TweetCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */,
+				C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */,
+			);
+			path = TweetCell;
+			sourceTree = "<group>";
+		};
+		F1F060A029257F4400865B72 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C5EAD9532924D9AE00D44073 /* AppDelegate.swift */,
+				C5EAD9552924D9AE00D44073 /* SceneDelegate.swift */,
+				C5EAD95C2924D9AF00D44073 /* Assets.xcassets */,
+				C5EAD95E2924D9AF00D44073 /* LaunchScreen.storyboard */,
+				C5EAD9612924D9AF00D44073 /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
