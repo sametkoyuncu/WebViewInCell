@@ -9,27 +9,27 @@
 /* Begin PBXBuildFile section */
 		C5EAD9542924D9AE00D44073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9532924D9AE00D44073 /* AppDelegate.swift */; };
 		C5EAD9562924D9AE00D44073 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9552924D9AE00D44073 /* SceneDelegate.swift */; };
-		C5EAD9582924D9AE00D44073 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9572924D9AE00D44073 /* ViewController.swift */; };
 		C5EAD95B2924D9AE00D44073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD9592924D9AE00D44073 /* Main.storyboard */; };
 		C5EAD95D2924D9AF00D44073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD95C2924D9AF00D44073 /* Assets.xcassets */; };
 		C5EAD9602924D9AF00D44073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD95E2924D9AF00D44073 /* LaunchScreen.storyboard */; };
-		C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */; };
-		C5EAD96A2924D9ED00D44073 /* TweetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */; };
 		F145B75E29255E45006EBFFD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145B75D29255E45006EBFFD /* Data.swift */; };
+		F1F3FA4929282C01004DD284 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3FA4829282C01004DD284 /* ChatViewController.swift */; };
+		F1F3FA4C29283D11004DD284 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3FA4A29283D11004DD284 /* ChatTableViewCell.swift */; };
+		F1F3FA4D29283D11004DD284 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F3FA4B29283D11004DD284 /* ChatTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5EAD9502924D9AE00D44073 /* WebViewInCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewInCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EAD9532924D9AE00D44073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5EAD9552924D9AE00D44073 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C5EAD9572924D9AE00D44073 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5EAD95A2924D9AE00D44073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5EAD95C2924D9AF00D44073 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5EAD95F2924D9AF00D44073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5EAD9612924D9AF00D44073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewCell.swift; sourceTree = "<group>"; };
-		C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetListTableViewCell.xib; sourceTree = "<group>"; };
 		F145B75D29255E45006EBFFD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		F1F3FA4829282C01004DD284 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		F1F3FA4A29283D11004DD284 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		F1F3FA4B29283D11004DD284 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,21 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				F1F060A029257F4400865B72 /* SupportingFiles */,
-				F1F0609F29257F1E00865B72 /* TweetCell */,
-				C5EAD9572924D9AE00D44073 /* ViewController.swift */,
 				C5EAD9592924D9AE00D44073 /* Main.storyboard */,
 				F145B75D29255E45006EBFFD /* Data.swift */,
+				F1F3FA4829282C01004DD284 /* ChatViewController.swift */,
+				F1F3FA4A29283D11004DD284 /* ChatTableViewCell.swift */,
+				F1F3FA4B29283D11004DD284 /* ChatTableViewCell.xib */,
 			);
 			path = WebViewInCell;
-			sourceTree = "<group>";
-		};
-		F1F0609F29257F1E00865B72 /* TweetCell */ = {
-			isa = PBXGroup;
-			children = (
-				C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */,
-				C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */,
-			);
-			path = TweetCell;
 			sourceTree = "<group>";
 		};
 		F1F060A029257F4400865B72 /* SupportingFiles */ = {
@@ -151,9 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EAD9602924D9AF00D44073 /* LaunchScreen.storyboard in Resources */,
+				F1F3FA4D29283D11004DD284 /* ChatTableViewCell.xib in Resources */,
 				C5EAD95D2924D9AF00D44073 /* Assets.xcassets in Resources */,
 				C5EAD95B2924D9AE00D44073 /* Main.storyboard in Resources */,
-				C5EAD96A2924D9ED00D44073 /* TweetListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,11 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EAD9582924D9AE00D44073 /* ViewController.swift in Sources */,
 				F145B75E29255E45006EBFFD /* Data.swift in Sources */,
 				C5EAD9542924D9AE00D44073 /* AppDelegate.swift in Sources */,
+				F1F3FA4C29283D11004DD284 /* ChatTableViewCell.swift in Sources */,
+				F1F3FA4929282C01004DD284 /* ChatViewController.swift in Sources */,
 				C5EAD9562924D9AE00D44073 /* SceneDelegate.swift in Sources */,
-				C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
