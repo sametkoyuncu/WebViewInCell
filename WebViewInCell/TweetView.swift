@@ -12,8 +12,9 @@ class ArticleWebView: WKWebView {
     var isReloadCalled = false
     var reloadRow: (()->())?
 
-  init(frame: CGRect) {
-    let configuration = WKWebViewConfiguration()
+    override init(frame: CGRect, configuration: WKWebViewConfiguration) {
+        
+   // let configuration = WKWebViewConfiguration()
     super.init(frame: frame, configuration: configuration)
     self.navigationDelegate = self
   }
@@ -46,4 +47,10 @@ extension ArticleWebView: WKNavigationDelegate {
         print("elma sametk")
     })
   }
+}
+
+extension ArticleWebView: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message: \(message.body)")
+    }
 }

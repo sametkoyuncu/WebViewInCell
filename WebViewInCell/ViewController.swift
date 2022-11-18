@@ -12,29 +12,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var webView: WKWebView!
-    var webView2: ArticleWebView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  configureWebView()
         setupTableView()
-    }
-    
-    func configureWebView() {
-        let config = WKWebViewConfiguration()
-        //let source = "document.addEventListener('click', function(){ window.webkit.messageHandlers.iosListener.postMessage('click clack!'); })"
-    //let source = "document.onreadystatechange = function(){ if(document.readyState) === 'complete'){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight)}}"
-      //  let source = "document.onreadystatechange = function(){ if(document.readyState) === 'complete'){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight)}}"
-       let source = "var interval = setInterval(function() {if(document.readyState === 'complete') { clearInterval(interval); window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight)}}, 100);"
-       // let source = "window.addEventListener('load', function() { window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); })"
-       // let source = "window.addEventListener('load', function(){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); })"
-        let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
-        config.userContentController.addUserScript(script)
-        config.userContentController.add(self, name: "iosListener")
-        webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
-        webView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupTableView() {
@@ -46,11 +27,41 @@ class ViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    func configureWebView() -> WKWebView {
+        let config = WKWebViewConfiguration()
+        // MARK: let source = "document.addEventListener('click', function(){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); })"
+        // TODO: let source = "var interval = setInterval(function() {if(document.readyState === 'complete') { clearInterval(interval); window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight)}}, 100);"
+        
+        //  let source = "document.onreadystatechange = function(){ if (document.readyState === 'complete') { window.webkit.messageHandlers.iosListener.postMessage('if: ' + document.body.scrollHeight); } else { window.onload = function () { window.webkit.messageHandlers.iosListener.postMessage('else: ' + document.body.scrollHeight); }; }; }"
+        // let source = "const observer = new ResizeObserver(entries => { for (const entry of entries) { window.webkit.messageHandlers.iosListener.postMessage(entry.contentRect.height) } }) observer.observe(document.querySelector('body'))"
+        //let source = "window.watch('document.body.clientHeight', function() { window.webkit.messageHandlers.iosListener.postMessage(document.body.clientHeight) });"
+        let source = """
+                    window.onload = function() {
+                                                                                                      inwindow.webkit.messageHandlers.iosListener.postMessage(document.body.clientHeight)
+                    }
+"""
+        
+        //let source = "window.onload = function() {const resizeObserver = new ResizeObserver(entries => window.webkit.messageHandlers.iosListener.postMessage(entries[0].target.clientHeight)) resizeObserver.observe(document.body)}"
+        //let source = "document.onreadystatechange = function(){ if(document.readyState) === 'complete'){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight)}}"
+        // let source = "window.onload = function() { window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); }"
+        //     let source = "window.addEventListener('load', function() { window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); }, false)"
+        //let source = "document.addEventListener('loaded', function(){ window.webkit.messageHandlers.iosListener.postMessage(document.body.scrollHeight); })"
+        let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        config.userContentController.addUserScript(script)
+        config.userContentController.add(self, name: "iosListener")
+        let webView = WKWebView(frame: .zero, configuration: config)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return webView
+    }
 }
 
 // MARK: - TableView Delegate Methods
 extension ViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
+    }
 }
 
 // MARK: - TableView DataSource Methods
@@ -61,23 +72,22 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        webView2 = ArticleWebView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200))
-        cell.contentView.addSubview(webView2)
+        let webView = configureWebView()
+        cell.contentView.addSubview(webView)
         
-        webView2.reloadRow = {
-            self.tableView.reloadRows(at: [indexPath], with: .none)
-        }
+        //        webView.reloadRow = {
+        //            self.tableView.reloadRows(at: [indexPath], with: .none)
+        //        }
         
         let webViewContraints = [
-            webView2.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 0),
-            webView2.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: 0),
-            webView2.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 0),
-            webView2.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: 0),
-            webView2.heightAnchor.constraint(equalToConstant: 200)
+            webView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 0),
+            webView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: 0),
+            webView.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 0),
+            webView.heightAnchor.constraint(equalToConstant: 200)
         ]
         NSLayoutConstraint.activate(webViewContraints)
         
-        webView2.loadHTMLString(Data.tweets[indexPath.row], baseURL: nil)
+        webView.loadHTMLString(Data.tweets[indexPath.row], baseURL: nil)
         
         return cell
     }
@@ -89,4 +99,6 @@ extension ViewController: WKScriptMessageHandler {
         print("message: \(message.body)")
     }
 }
+
+
 
