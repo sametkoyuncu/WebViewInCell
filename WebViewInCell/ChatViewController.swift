@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import WebKit
 
 class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var isReloadedOnce = false
+    var reloadCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class ChatViewController: UIViewController {
 // MARK: - table view delegate methods
 extension ChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        400
+        UITableView.automaticDimension
     }
 }
 
@@ -36,7 +39,20 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.identifier, for: indexPath) as! ChatTableViewCell
         
-        cell.loadWebKit(str: "<meta name='viewport' content='initial-scale=1.0'/><blockquote class='twitter-tweet'><p lang='tr' dir='ltr'>Teknoloji alanında yurtdışında staj yapmak isteyen arkadaşlar, 2023 yılı yazı için stajyer alımı yapan teknoloji şirketlerinin listesine şuradan ulaşabilirsiniz: <a href='https://t.co/zI8DzIKJZI'>https://t.co/zI8DzIKJZI</a></p>&mdash; Fatih Yavuz (@fthdev) <a href='https://twitter.com/fthdev/status/1592807393985204224?ref_src=twsrc%5Etfw'>November 16, 2022</a></blockquote> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>")
+        cell.loadWebKit(str: Data.tweets[indexPath.row])
+        cell.webView.tag = indexPath.row
+        cell.webView.navigationDelegate = self
         return cell
+    }
+}
+
+extension ChatViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if reloadCount < 3 {
+            reloadCount += 1
+            print("ayva ayva")
+            tableView.reloadData()
+        }
+        
     }
 }

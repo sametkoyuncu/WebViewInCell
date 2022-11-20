@@ -40,6 +40,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QRd-o6-eJX" firstAttribute="leading" secondItem="QH0-Yr-QFe" secondAttribute="leading" constant="8" id="9ZP-Ry-8RB"/>
+                            <constraint firstAttribute="height" secondItem="QRd-o6-eJX" secondAttribute="height" multiplier="1.15385" id="F8r-YD-Se0"/>
                             <constraint firstAttribute="trailing" secondItem="QRd-o6-eJX" secondAttribute="trailing" constant="8" id="Hor-Na-tLu"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="c2F-Xo-0VQ"/>
                             <constraint firstItem="QRd-o6-eJX" firstAttribute="top" secondItem="QH0-Yr-QFe" secondAttribute="top" constant="8" id="nIl-JZ-Ila"/>
