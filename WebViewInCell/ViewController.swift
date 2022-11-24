@@ -8,10 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
- 
     @IBOutlet weak var tableView: UITableView!
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -20,10 +18,6 @@ class ViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        // for showing results
-        TweetListTableViewCell.delegate = self
-        
-        tableView.isHidden = true
         
         tableView.register(.init(nibName: "TweetListTableViewCell", bundle: nil), forCellReuseIdentifier: TweetListTableViewCell.identifier)
     }
@@ -34,28 +28,35 @@ extension ViewController: UITableViewDelegate { }
 
 // MARK: - TableView DataSource Methods
 extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let cell = tableView.cellForRow(at: indexPath) as? TweetListTableViewCell {
+            return cell.webView.scrollView.contentSize.height
+        }
+        return UITableView.automaticDimension
+    }
+    
+//    ??
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 300
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Data.tweets.count
+        return Data.tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // for using tweet index
-        // TODO: burası sıkıntılı yer 1
-        TweetListTableViewCell.rowIndex = indexPath.row
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetListTableViewCell.identifier, for: indexPath) as! TweetListTableViewCell
-      
+        
+        cell.configureCell(for: self, with: Data.tweets[indexPath.row])
+        
         return cell
     }
 }
 
 extension ViewController: TweetCellDelegate {
-    func showResults() {
-        tableView.reloadData()
-        tableView.isHidden = false
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
+    func updateHeights() {
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
-
-
