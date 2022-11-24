@@ -13,8 +13,9 @@
 		C5EAD95B2924D9AE00D44073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD9592924D9AE00D44073 /* Main.storyboard */; };
 		C5EAD95D2924D9AF00D44073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD95C2924D9AF00D44073 /* Assets.xcassets */; };
 		C5EAD9602924D9AF00D44073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD95E2924D9AF00D44073 /* LaunchScreen.storyboard */; };
+		C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */; };
+		C5EAD96A2924D9ED00D44073 /* TweetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */; };
 		F145B75E29255E45006EBFFD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145B75D29255E45006EBFFD /* Data.swift */; };
-		F1E8B1842926C5D0004CFE66 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8B1832926C5D0004CFE66 /* TweetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		C5EAD95C2924D9AF00D44073 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5EAD95F2924D9AF00D44073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5EAD9612924D9AF00D44073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewCell.swift; sourceTree = "<group>"; };
+		C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetListTableViewCell.xib; sourceTree = "<group>"; };
 		F145B75D29255E45006EBFFD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		F1E8B1832926C5D0004CFE66 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +63,21 @@
 			isa = PBXGroup;
 			children = (
 				F1F060A029257F4400865B72 /* SupportingFiles */,
+				F1F0609F29257F1E00865B72 /* TweetCell */,
 				C5EAD9572924D9AE00D44073 /* ViewController.swift */,
 				C5EAD9592924D9AE00D44073 /* Main.storyboard */,
 				F145B75D29255E45006EBFFD /* Data.swift */,
-				F1E8B1832926C5D0004CFE66 /* TweetView.swift */,
 			);
 			path = WebViewInCell;
+			sourceTree = "<group>";
+		};
+		F1F0609F29257F1E00865B72 /* TweetCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5EAD9672924D9ED00D44073 /* TweetListTableViewCell.swift */,
+				C5EAD9682924D9ED00D44073 /* TweetListTableViewCell.xib */,
+			);
+			path = TweetCell;
 			sourceTree = "<group>";
 		};
 		F1F060A029257F4400865B72 /* SupportingFiles */ = {
@@ -142,6 +153,7 @@
 				C5EAD9602924D9AF00D44073 /* LaunchScreen.storyboard in Resources */,
 				C5EAD95D2924D9AF00D44073 /* Assets.xcassets in Resources */,
 				C5EAD95B2924D9AE00D44073 /* Main.storyboard in Resources */,
+				C5EAD96A2924D9ED00D44073 /* TweetListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +167,8 @@
 				C5EAD9582924D9AE00D44073 /* ViewController.swift in Sources */,
 				F145B75E29255E45006EBFFD /* Data.swift in Sources */,
 				C5EAD9542924D9AE00D44073 /* AppDelegate.swift in Sources */,
-				F1E8B1842926C5D0004CFE66 /* TweetView.swift in Sources */,
 				C5EAD9562924D9AE00D44073 /* SceneDelegate.swift in Sources */,
+				C5EAD9692924D9ED00D44073 /* TweetListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
